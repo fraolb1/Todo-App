@@ -34,6 +34,7 @@ export default function App() {
                   id={todo.id}
                   title={todo.title}
                   completed={todo.completed}
+                  description={todo.description ?? ""}
                 />
               ))
             ) : (

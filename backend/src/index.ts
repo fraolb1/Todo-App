@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import todoRoutes from "./routes/todo.route";
 
 const app = express();
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());

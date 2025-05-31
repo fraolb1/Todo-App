@@ -1,15 +1,14 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../index";
 import { createTodoSchema, updateTodoSchema } from "../schemas/todoSchema";
 
 const router = Router();
-const prisma = new PrismaClient();
 
 router.post("/", async (req, res) => {
   try {
-    const { title, completed } = createTodoSchema.parse(req.body);
+    const { title, description, completed } = createTodoSchema.parse(req.body);
     const todo = await prisma.todo.create({
-      data: { title, completed },
+      data: { title, description, completed },
     });
     res.status(201).json(todo);
   } catch (error) {
@@ -25,10 +24,10 @@ router.get("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const { title, completed } = updateTodoSchema.parse(req.body);
+    const { title, description, completed } = updateTodoSchema.parse(req.body);
     const todo = await prisma.todo.update({
       where: { id },
-      data: { title, completed },
+      data: { title, description, completed },
     });
     res.json(todo);
   } catch (error) {
