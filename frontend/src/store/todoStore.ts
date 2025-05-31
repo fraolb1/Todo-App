@@ -23,11 +23,11 @@ interface TodoState {
 export const useTodoStore = create<TodoState>((set) => ({
   todos: [],
   fetchTodos: async () => {
-    const response = await axios.get("http://backend:5000/api/todos");
+    const response = await axios.get("http://localhost:5000/api/todos");
     set({ todos: response.data });
   },
   addTodo: async (title, description) => {
-    const response = await axios.post("http://backend:5000/api/todos", {
+    const response = await axios.post("http://localhost:5000/api/todos", {
       title,
       description,
     });
@@ -35,7 +35,7 @@ export const useTodoStore = create<TodoState>((set) => ({
   },
   updateTodo: async (id, updates) => {
     const response = await axios.put(
-      `http://backend:5000/api/todos/${id}`,
+      `http://localhost:5000/api/todos/${id}`,
       updates
     );
     set((state) => ({
@@ -43,7 +43,7 @@ export const useTodoStore = create<TodoState>((set) => ({
     }));
   },
   deleteTodo: async (id) => {
-    await axios.delete(`http://backend:5000/api/todos/${id}`);
+    await axios.delete(`http://localhost:5000/api/todos/${id}`);
     set((state) => ({ todos: state.todos.filter((todo) => todo.id !== id) }));
   },
 }));
