@@ -6,7 +6,11 @@ import todoRoutes from "./routes/todo.route";
 const app = express();
 export const prisma = new PrismaClient();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://frontend:3000"],
+  })
+);
 app.use(express.json());
 app.use("/api/todos", todoRoutes);
 
