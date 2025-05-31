@@ -14,10 +14,10 @@ cd todo-app
 ````
   cd backend
   cp .env.example .env
-  # Edit the `.env` file if you need to change any environment variables
+  # Edit the `.env` file change environment variables, change the password and username
   npm install
   npx prisma migrate reset
-  npm start
+  npm run dev
   ```
 
 3. **Set up the frontend:**
@@ -26,12 +26,12 @@ Open a new terminal window/tab, then:
 
 cd frontend
 npm install
-npm start
+npm run dev
 
 ```
 
 4. **Open the app:**
-- Visit `http://localhost:3000` in your browser.
+- Visit `http://localhost:5173` in your browser.
 
 ---
 
