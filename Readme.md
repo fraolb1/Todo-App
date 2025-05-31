@@ -5,7 +5,7 @@
 1. **Clone the repository:**
 
 ```
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/fraolb1/todo-app.git
 cd todo-app
 ```
 
